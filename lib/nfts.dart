@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:postest2_fazriading_2009106031/button.dart';
+import 'button.dart';
 
 class CurrentPrice extends StatelessWidget {
   const CurrentPrice({Key? key}) : super(key: key);
