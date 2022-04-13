@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 class Submenu extends StatelessWidget {
   const Submenu({Key? key, required this.teks}) : super(key: key);
@@ -24,5 +25,24 @@ class Submenu extends StatelessWidget {
               style: TextButton.styleFrom(
                   primary: const Color.fromRGBO(132, 132, 132, 1)))
         ]));
+  }
+}
+
+class PlaceBidMenu extends StatelessWidget {
+  const PlaceBidMenu({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: myAppBar(),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
   }
 }

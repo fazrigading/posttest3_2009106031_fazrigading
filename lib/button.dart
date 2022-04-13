@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'menu.dart';
 
 class NonSelectedButton extends StatelessWidget {
   const NonSelectedButton({Key? key, required this.teks}) : super(key: key);
@@ -70,7 +71,13 @@ class PlaceBid extends StatelessWidget {
             elevation: 5,
             color: const Color.fromRGBO(18, 18, 18, 1),
             child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PlaceBidMenu()),
+                  );
+                },
                 minWidth: 158,
                 height: 58,
                 child: const Text(

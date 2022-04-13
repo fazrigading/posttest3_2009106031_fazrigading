@@ -12,12 +12,56 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Post-test 2 2009106031',
+      title: 'Post-test 3 2009106031',
       theme: ThemeData(fontFamily: 'Manrope'),
       home: const Homepage(),
       debugShowCheckedModeBanner: false,
     );
   }
+}
+
+PreferredSizeWidget myAppBar() {
+  return AppBar(
+    title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+      Image.asset('assets/ethcopy1.png',
+          fit: BoxFit.contain, height: 32, width: 32),
+      Container(
+        padding: const EdgeInsets.all(10.0),
+        child: const Text(
+          "12.89 ETH",
+          style: TextStyle(
+              fontFamily: 'Manrope',
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.w800),
+        ),
+      ),
+    ]),
+    actions: <Widget>[
+      Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: GestureDetector(
+            onTap: () {},
+            child: const Icon(
+              Icons.search,
+              size: 26.0,
+              color: Colors.black,
+            ),
+          )),
+      Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: GestureDetector(
+            onTap: () {},
+            child: const Icon(
+              Icons.notifications_outlined,
+              color: Colors.black,
+            ),
+          )),
+    ],
+    backgroundColor: Colors.white,
+    elevation: 1,
+    toolbarHeight: 70,
+  );
 }
 
 class Homepage extends StatelessWidget {
@@ -26,56 +70,15 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Image.asset('assets/ethcopy1.png',
-              fit: BoxFit.contain, height: 32, width: 32),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            child: const Text(
-              "12.89 ETH",
-              style: TextStyle(
-                  fontFamily: 'Manrope',
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w800),
-            ),
-          ),
-        ]),
-        actions: <Widget>[
-          Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: const Icon(
-                  Icons.search,
-                  size: 26.0,
-                  color: Colors.black,
-                ),
-              )),
-          Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: const Icon(
-                  Icons.notifications_outlined,
-                  color: Colors.black,
-                ),
-              )),
-        ],
-        backgroundColor: Colors.white,
-        elevation: 1,
-        toolbarHeight: 70,
-      ),
+      appBar: myAppBar(),
       body: ListView(
         children: [
           const Submenu(teks: 'Categories'),
           const CategoriesButton(),
           const Submenu(teks: 'Featured NFTs'),
-          SizedBox(
-              height: 460,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+          SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
                 children: const <Widget>[
                   NFT(
                       kreator: 'Bored Ape Yacht Club',

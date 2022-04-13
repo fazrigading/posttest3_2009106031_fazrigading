@@ -33,6 +33,7 @@ class NFT extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
+          height: 415,
           width: 320,
           decoration: BoxDecoration(
               color: const Color.fromRGBO(0, 0, 0, 0.12),
@@ -81,7 +82,7 @@ class NFT extends StatelessWidget {
               image: DecorationImage(
                   image: AssetImage(gambar), fit: BoxFit.cover)),
         ),
-        const PlaceBid(),
+        PlaceBid(),
       ],
     );
   }
