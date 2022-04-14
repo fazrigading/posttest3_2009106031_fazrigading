@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Post-test 3 2009106031',
-      theme: ThemeData(fontFamily: 'Manrope'),
+      theme: ThemeData(
+          fontFamily: 'Manrope',
+          appBarTheme:
+              const AppBarTheme(iconTheme: IconThemeData(color: Colors.black))),
       home: const Homepage(),
       debugShowCheckedModeBanner: false,
     );
@@ -81,20 +84,26 @@ class Homepage extends StatelessWidget {
               child: Row(
                 children: const <Widget>[
                   NFT(
-                      kreator: 'Bored Ape Yacht Club',
-                      judul: 'Bored Ape #8854',
-                      harga: '25',
-                      gambar: 'assets/boredape8854.png'),
+                    kreator: 'Bored Ape Yacht Club',
+                    judul: 'Bored Ape #8854',
+                    harga: '25',
+                    gambar: 'assets/boredape8854.png',
+                    kreatorImg: 'assets/bayc.png',
+                  ),
                   NFT(
-                      kreator: 'MekaVerse',
-                      judul: 'Meka #3139',
-                      harga: '10',
-                      gambar: 'assets/Rectangle69.png'),
+                    kreator: 'MekaVerse',
+                    judul: 'Meka #3139',
+                    harga: '10',
+                    gambar: 'assets/meka3139.png',
+                    kreatorImg: 'assets/mekaverse.png',
+                  ),
                   NFT(
-                      kreator: 'Zeff Hood',
-                      judul: 'Dacing David',
-                      harga: '7',
-                      gambar: 'assets/image7.png'),
+                    kreator: 'Zeff Hood',
+                    judul: 'Dacing David',
+                    harga: '7',
+                    gambar: 'assets/dacingdavid.png',
+                    kreatorImg: 'assets/zeffhood.png',
+                  ),
                 ],
               )),
           const Submenu(teks: 'Featured Creators'),

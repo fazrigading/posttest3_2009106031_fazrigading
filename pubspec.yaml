@@ -59,13 +59,21 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/Rectangle69.png
-    - assets/Rectangle104.png
-    - assets/Rectangle49.png
-    - assets/Rectangle59.png
+    - assets/jayanrobs.png
+    - assets/thewatcher.png
+    - assets/zeffhood.png
+    - assets/dacingdavid.png
+    - assets/meka3139.png
+    - assets/mekaverse.png
     - assets/boredape8854.png
+    - assets/boredapekennelclub9988.png
+    - assets/bayc.png
+    - assets/bakc.png
+    - assets/gutterrat1780.png
+    - assets/popwonderedition.png
+    - assets/azuki.jpg
+    - assets/pudgypenguin1528.png
     - assets/ethcopy1.png
-    - assets/image7.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

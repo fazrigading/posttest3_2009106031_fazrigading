@@ -56,7 +56,19 @@ class CategoriesButton extends StatelessWidget {
 }
 
 class PlaceBid extends StatelessWidget {
-  const PlaceBid({Key? key}) : super(key: key);
+  const PlaceBid(
+      {Key? key,
+      required this.kreator,
+      required this.judul,
+      required this.harga,
+      required this.gambar,
+      required this.kreatorImg})
+      : super(key: key);
+  final String kreator;
+  final String judul;
+  final String harga;
+  final String gambar;
+  final String kreatorImg;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +76,6 @@ class PlaceBid extends StatelessWidget {
       margin: const EdgeInsets.only(top: 375),
       child: ButtonBar(
         alignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
         children: [
           Material(
             borderRadius: BorderRadius.circular(18.0),
@@ -75,7 +86,13 @@ class PlaceBid extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const PlaceBidMenu()),
+                        builder: (context) => PlaceBidMenu(
+                              kreator: kreator,
+                              judul: judul,
+                              harga: harga,
+                              gambar: gambar,
+                              kreatorImg: kreatorImg,
+                            )),
                   );
                 },
                 minWidth: 158,

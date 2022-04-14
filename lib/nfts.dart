@@ -1,31 +1,20 @@
 import 'package:flutter/material.dart';
 import 'button.dart';
 
-class CurrentPrice extends StatelessWidget {
-  const CurrentPrice({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text('Current Price',
-        style: TextStyle(
-            color: Color.fromRGBO(132, 132, 132, 1),
-            fontWeight: FontWeight.w500,
-            fontSize: 14));
-  }
-}
-
 class NFT extends StatelessWidget {
   const NFT(
       {Key? key,
       required this.kreator,
       required this.judul,
       required this.harga,
-      required this.gambar})
+      required this.gambar,
+      required this.kreatorImg})
       : super(key: key);
   final String kreator;
   final String judul;
   final String harga;
   final String gambar;
+  final String kreatorImg;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -44,13 +33,17 @@ class NFT extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, top: 330, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: <Widget>[
                       Text('By ' + kreator,
                           style: const TextStyle(
                               color: Color.fromRGBO(132, 132, 132, 1),
                               fontWeight: FontWeight.w500,
                               fontSize: 14)),
-                      const CurrentPrice()
+                      const Text('Current Price',
+                          style: TextStyle(
+                              color: Color.fromRGBO(132, 132, 132, 1),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14))
                     ],
                   )),
               Container(
@@ -82,7 +75,12 @@ class NFT extends StatelessWidget {
               image: DecorationImage(
                   image: AssetImage(gambar), fit: BoxFit.cover)),
         ),
-        PlaceBid(),
+        PlaceBid(
+            kreator: kreator,
+            judul: judul,
+            harga: harga,
+            gambar: gambar,
+            kreatorImg: kreatorImg),
       ],
     );
   }
