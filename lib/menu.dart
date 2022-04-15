@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'package:marquee/marquee.dart';
 
 class Submenu extends StatelessWidget {
   const Submenu({Key? key, required this.teks}) : super(key: key);
@@ -28,8 +29,8 @@ class Submenu extends StatelessWidget {
   }
 }
 
-class PlaceBidMenu extends StatelessWidget {
-  const PlaceBidMenu(
+class BuyMenu extends StatelessWidget {
+  const BuyMenu(
       {Key? key,
       required this.kreator,
       required this.judul,
@@ -39,7 +40,7 @@ class PlaceBidMenu extends StatelessWidget {
       : super(key: key);
   final String kreator;
   final String judul;
-  final String harga;
+  final double harga;
   final String gambar;
   final String kreatorImg;
   @override
@@ -79,31 +80,49 @@ class PlaceBidMenu extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50))),
-            child: Column(children: [
-              Container(
-                  padding: const EdgeInsets.only(top: 20, left: 30, right: 30),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: AssetImage(kreatorImg)))),
-                        Text(kreator,
-                            style: const TextStyle(
-                                color: Color.fromRGBO(132, 132, 132, 1),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16))
-                      ])
-                  // const Text('Current Price',
-                  //     style: TextStyle(
-                  //         color: Color.fromRGBO(132, 132, 132, 1),
-                  //         fontWeight: FontWeight.w500,
-                  //         fontSize: 14)),
-
-                  )
-            ]),
+            child: Column(
+              children: [
+                Container(
+                    padding:
+                        const EdgeInsets.only(top: 32, left: 28, right: 28),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.only(right: 16),
+                              width: 86,
+                              height: 86,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(kreatorImg),
+                                      fit: BoxFit.cover))),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(kreator,
+                                  style: const TextStyle(
+                                      color: Color.fromRGBO(132, 132, 132, 1),
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16)),
+                              Text(
+                                judul,
+                                style: const TextStyle(
+                                    color: Color.fromRGBO(18, 18, 18, 1),
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              Text(harga.toString() + ' ETH',
+                                  style: const TextStyle(
+                                      color: Color.fromRGBO(18, 183, 183, 1),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold))
+                            ],
+                          ),
+                        ])),
+                Container(),
+              ],
+            ),
           ),
         ],
       ),

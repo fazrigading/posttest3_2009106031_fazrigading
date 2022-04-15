@@ -12,7 +12,7 @@ class NFT extends StatelessWidget {
       : super(key: key);
   final String kreator;
   final String judul;
-  final String harga;
+  final double harga;
   final String gambar;
   final String kreatorImg;
   @override
@@ -56,7 +56,7 @@ class NFT extends StatelessWidget {
                               color: Color.fromRGBO(18, 18, 18, 1),
                               fontWeight: FontWeight.w700,
                               fontSize: 18)),
-                      Text(harga + ' ETH',
+                      Text(harga.toString(),
                           style: const TextStyle(
                               color: Color.fromRGBO(18, 18, 18, 1),
                               fontWeight: FontWeight.w700,
@@ -75,7 +75,7 @@ class NFT extends StatelessWidget {
               image: DecorationImage(
                   image: AssetImage(gambar), fit: BoxFit.cover)),
         ),
-        PlaceBid(
+        BuyButton(
             kreator: kreator,
             judul: judul,
             harga: harga,

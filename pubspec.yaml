@@ -38,6 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  marquee: ^2.2.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -71,8 +72,11 @@ flutter:
     - assets/bakc.png
     - assets/gutterrat1780.png
     - assets/popwonderedition.png
+    - assets/azuki6184.png
+    - assets/azuki6905.png
     - assets/azuki.jpg
     - assets/pudgypenguin1528.png
+    - assets/pudgypenguins.png
     - assets/ethcopy1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

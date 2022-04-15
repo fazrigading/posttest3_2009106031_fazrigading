@@ -55,8 +55,8 @@ class CategoriesButton extends StatelessWidget {
   }
 }
 
-class PlaceBid extends StatelessWidget {
-  const PlaceBid(
+class BuyButton extends StatelessWidget {
+  const BuyButton(
       {Key? key,
       required this.kreator,
       required this.judul,
@@ -66,7 +66,7 @@ class PlaceBid extends StatelessWidget {
       : super(key: key);
   final String kreator;
   final String judul;
-  final String harga;
+  final double harga;
   final String gambar;
   final String kreatorImg;
 
@@ -86,7 +86,7 @@ class PlaceBid extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => PlaceBidMenu(
+                        builder: (context) => BuyMenu(
                               kreator: kreator,
                               judul: judul,
                               harga: harga,
@@ -98,7 +98,7 @@ class PlaceBid extends StatelessWidget {
                 minWidth: 158,
                 height: 58,
                 child: const Text(
-                  'Place Bid',
+                  'Buy Now',
                   style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'Manrope',
@@ -177,15 +177,13 @@ class Creators extends StatelessWidget {
     return Column(
       children: const [
         Creator(
-            gambar: 'assets/Rectangle104.png',
+            gambar: 'assets/thewatcher.png',
             nama: 'The Watcher',
             pengikut: '576'),
         Creator(
-            gambar: 'assets/Rectangle49.png',
-            nama: 'Zeff Hood',
-            pengikut: '892'),
+            gambar: 'assets/zeffhood.png', nama: 'Zeff Hood', pengikut: '892'),
         Creator(
-            gambar: 'assets/Rectangle59.png',
+            gambar: 'assets/jayanrobs.png',
             nama: 'Jayan Robs',
             pengikut: '707'),
       ],
