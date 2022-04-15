@@ -108,7 +108,7 @@ class Homepage extends StatelessWidget {
                   ),
                   NFT(
                     kreator: 'Pudgy Penguins',
-                    judul: 'Pudgy Penguin #1528',
+                    judul: 'Penguin #1528',
                     harga: 1.792,
                     gambar: 'assets/pudgypenguin1528.png',
                     kreatorImg: 'assets/pudgypenguins.png',
@@ -122,9 +122,9 @@ class Homepage extends StatelessWidget {
                   ),
                   NFT(
                     kreator: 'MekaVerse',
-                    judul: 'Meka #3139',
+                    judul: 'Meka #8491',
                     harga: 0.45,
-                    gambar: 'assets/meka3139.png',
+                    gambar: 'assets/meka8491.png',
                     kreatorImg: 'assets/mekaverse.png',
                   ),
                   NFT(

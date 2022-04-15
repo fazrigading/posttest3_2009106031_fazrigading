@@ -39,7 +39,7 @@ class NFT extends StatelessWidget {
                               color: Color.fromRGBO(132, 132, 132, 1),
                               fontWeight: FontWeight.w500,
                               fontSize: 14)),
-                      const Text('Current Price',
+                      const Text('Price',
                           style: TextStyle(
                               color: Color.fromRGBO(132, 132, 132, 1),
                               fontWeight: FontWeight.w500,
@@ -58,7 +58,7 @@ class NFT extends StatelessWidget {
                               fontSize: 18)),
                       Text(harga.toString(),
                           style: const TextStyle(
-                              color: Color.fromRGBO(18, 18, 18, 1),
+                              color: Color.fromRGBO(18, 183, 183, 1),
                               fontWeight: FontWeight.w700,
                               fontSize: 18)),
                     ],

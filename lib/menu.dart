@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'package:marquee/marquee.dart';
 
 class Submenu extends StatelessWidget {
   const Submenu({Key? key, required this.teks}) : super(key: key);
