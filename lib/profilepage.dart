@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+
+enum PersonGender { male, female, other }
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -12,6 +13,8 @@ class _ProfilePageState extends State<ProfilePage> {
   String firstName = '';
   String lastname = '';
   String username = '';
+
+  PersonGender? _personGender = PersonGender.male;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +55,42 @@ class _ProfilePageState extends State<ProfilePage> {
                     border: UnderlineInputBorder(),
                     labelText: 'Last Name',
                   ),
+                ),
+              ),
+              ListTile(
+                title: const Text('Male'),
+                leading: Radio<PersonGender>(
+                  value: PersonGender.male,
+                  groupValue: _personGender,
+                  onChanged: (PersonGender? value) {
+                    setState(() {
+                      _personGender = value;
+                    });
+                  },
+                ),
+              ),
+              ListTile(
+                title: const Text('Female'),
+                leading: Radio<PersonGender>(
+                  value: PersonGender.female,
+                  groupValue: _personGender,
+                  onChanged: (PersonGender? value) {
+                    setState(() {
+                      _personGender = value;
+                    });
+                  },
+                ),
+              ),
+              ListTile(
+                title: const Text('Other'),
+                leading: Radio<PersonGender>(
+                  value: PersonGender.female,
+                  groupValue: _personGender,
+                  onChanged: (PersonGender? value) {
+                    setState(() {
+                      _personGender = value;
+                    });
+                  },
                 ),
               ),
             ],

@@ -173,7 +173,7 @@ class BuyMenu extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 28, right: 28),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("test")],
+                    children: const [Text("test"), Text("test")],
                   ),
                 ),
                 BeliNFT(hargabeli: harga)
