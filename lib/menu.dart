@@ -28,6 +28,56 @@ class Submenu extends StatelessWidget {
   }
 }
 
+class BeliNFT extends StatefulWidget {
+  const BeliNFT({Key? key, required this.hargabeli}) : super(key: key);
+  final double hargabeli;
+  @override
+  // ignore: no_logic_in_create_state
+  _BeliNFTState createState() => _BeliNFTState(harganft: hargabeli);
+}
+
+class _BeliNFTState extends State<BeliNFT> {
+  double harganft;
+  double newbalance = balance;
+  _BeliNFTState({required this.harganft});
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('Current Balance $newbalance'),
+        Container(
+          padding: const EdgeInsets.only(bottom: 32, left: 28, right: 28),
+          child: ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: [
+              Material(
+                borderRadius: BorderRadius.circular(18),
+                elevation: 5,
+                color: const Color.fromRGBO(18, 18, 18, 1),
+                child: MaterialButton(
+                    onPressed: () {
+                      setState(() {
+                        newbalance = balance - harganft;
+                      });
+                    },
+                    minWidth: 158,
+                    height: 58,
+                    child: const Text(
+                      'Buy Now',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
+                    )),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class BuyMenu extends StatelessWidget {
   const BuyMenu(
       {Key? key,
@@ -42,17 +92,17 @@ class BuyMenu extends StatelessWidget {
   final double harga;
   final String gambar;
   final String kreatorImg;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 0.95),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 28),
+            margin: const EdgeInsets.only(left: 28, right: 28, bottom: 28),
             width: 358,
             height: 358,
             decoration: BoxDecoration(
@@ -67,7 +117,7 @@ class BuyMenu extends StatelessWidget {
                     image: AssetImage(gambar), fit: BoxFit.cover)),
           ),
           Container(
-            height: 320,
+            height: 410,
             decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -119,7 +169,14 @@ class BuyMenu extends StatelessWidget {
                             ],
                           ),
                         ])),
-                Container(),
+                Container(
+                  padding: const EdgeInsets.only(left: 28, right: 28),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [Text("test")],
+                  ),
+                ),
+                BeliNFT(hargabeli: harga)
               ],
             ),
           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'button.dart';
 
-class NFT extends StatelessWidget {
-  const NFT(
+class Item extends StatelessWidget {
+  const Item(
       {Key? key,
       required this.kreator,
       required this.judul,
@@ -34,7 +34,7 @@ class NFT extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text('By ' + kreator,
+                      Text(kreator,
                           style: const TextStyle(
                               color: Color.fromRGBO(132, 132, 132, 1),
                               fontWeight: FontWeight.w500,
