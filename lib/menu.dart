@@ -96,6 +96,11 @@ class BuyMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 1,
+        toolbarHeight: 70,
+      ),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 0.95),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -117,7 +122,8 @@ class BuyMenu extends StatelessWidget {
                     image: AssetImage(gambar), fit: BoxFit.cover)),
           ),
           Container(
-            height: 410,
+            // height: 410,
+
             decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(

@@ -9,6 +9,9 @@ void main() {
 }
 
 double balance = 43.19;
+String firstName = "Fazri", lastName = "Gading";
+List<String> gender = ["Male", "Female"];
+int chosenGender = 0;
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -20,37 +23,41 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Manrope',
           appBarTheme:
               const AppBarTheme(iconTheme: IconThemeData(color: Colors.black))),
-      home: const Homepage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        // '/second': (context) => EditProfile(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key, firstName, lastName}) : super(key: key);
+  @override
+  State<HomeScreen> createState() => _HomeScreenState(firstName, lastName);
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  _HomeScreenState(firstName, lastName);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 1,
         toolbarHeight: 70,
-        title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Image.asset('assets/ethcopy1.png',
-              fit: BoxFit.contain, height: 32, width: 32),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            child: const Text(
-              "Fazri Gading",
-              style: TextStyle(
-                  fontFamily: 'Manrope',
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w800),
-            ),
-          ),
-        ]),
+        title: const Text(
+          "NFT App",
+          style: TextStyle(
+              fontFamily: 'Manrope',
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.w800),
+        ),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 10),
@@ -60,7 +67,11 @@ class Homepage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ProfilePage()));
+                          builder: (context) => EditProfile(
+                              firstName: firstName,
+                              lastName: lastName,
+                              gender: gender,
+                              chosenGender: chosenGender)));
                 },
                 icon: const Icon(Icons.person_outline)),
           )
@@ -68,6 +79,17 @@ class Homepage extends StatelessWidget {
       ),
       body: ListView(
         children: const [
+          // Container(
+          //     alignment: Alignment.center,
+          //     padding: const EdgeInsets.only(top: 20),
+          //     child: Text(
+          //       "Welcome, $firstName $lastName",
+          //       style: const TextStyle(
+          //           fontFamily: 'Manrope',
+          //           color: Colors.black,
+          //           fontSize: 20,
+          //           fontWeight: FontWeight.w300),
+          //     )),
           Submenu(teks: 'Categories'),
           CategoriesButton(),
           Submenu(teks: 'Featured NFTs'),
