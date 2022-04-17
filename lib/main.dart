@@ -78,24 +78,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: ListView(
-        children: [
-          Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.only(top: 20),
-              child: Text(
-                "Welcome, $firstName $lastName",
-                style: const TextStyle(
-                    fontFamily: 'Manrope',
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w300),
-              )),
-          const Submenu(teks: 'Categories'),
-          const CategoriesButton(),
-          const Submenu(teks: 'Featured NFTs'),
-          const FeaturedNFT(),
-          const Submenu(teks: 'Featured Creators'),
-          const Creators(),
+        children: const [
+          Submenu(teks: 'Categories'),
+          CategoriesButton(),
+          Submenu(teks: 'Featured NFTs'),
+          FeaturedNFT(),
+          Submenu(teks: 'Featured Creators'),
+          Creators(),
         ],
       ),
     );
