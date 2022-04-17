@@ -1,3 +1,5 @@
+// ignore_for_file: no_logic_in_create_state
+
 import 'package:flutter/material.dart';
 
 class EditProfile extends StatefulWidget {
@@ -6,29 +8,26 @@ class EditProfile extends StatefulWidget {
       required this.firstName,
       required this.lastName,
       required this.gender,
+      required this.emailAddress,
       required this.chosenGender})
       : super(key: key);
-  String firstName, lastName;
+  String firstName, lastName, emailAddress;
   List gender;
   int chosenGender;
   @override
-  State<EditProfile> createState() =>
-      _EditProfileState(firstName, lastName, gender, chosenGender);
+  State<EditProfile> createState() => _EditProfileState(
+      firstName, lastName, emailAddress, gender, chosenGender);
 }
 
 class _EditProfileState extends State<EditProfile> {
-  String firstName,
-      lastName,
-      newfirstName = "",
-      newlastName = "",
-      chosenRadio = "Male";
+  String firstName, lastName, emailAddress, chosenRadio = "Male";
   TextEditingController ctrFirst = TextEditingController();
   TextEditingController ctrLast = TextEditingController();
-  TextEditingController ctrGender = TextEditingController();
+  TextEditingController ctrEmail = TextEditingController();
   int idRadio = 1, chosenGender;
   List gender;
-  _EditProfileState(
-      this.firstName, this.lastName, this.gender, this.chosenGender);
+  _EditProfileState(this.firstName, this.lastName, this.emailAddress,
+      this.gender, this.chosenGender);
 
   @override
   void initState() {
@@ -61,38 +60,60 @@ class _EditProfileState extends State<EditProfile> {
         ),
         body: Center(
           child: ListView(
-            children: <Widget>[
-              const Icon(
-                Icons.person,
-                size: 256,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Icon(
+                  Icons.person,
+                  size: 256,
+                ),
               ),
-              Column(
-                children: [
-                  Text("First Name: $firstName"),
-                  Text("Last Name: $lastName"),
-                  Text("Gender: " + gender[chosenGender]),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Column(
+                  children: [
+                    Text("$firstName $lastName",
+                        style: const TextStyle(
+                            fontFamily: 'Manrope',
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w600)),
+                    Text(emailAddress),
+                    Text("Gender: " + gender[chosenGender]),
+                  ],
+                ),
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
                 child: TextFormField(
                   controller: ctrFirst,
                   decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
+                      border: OutlineInputBorder(),
                       labelText: "First Name",
                       hintText: "ex: Fazri"),
                 ),
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
                 child: TextFormField(
                   controller: ctrLast,
                   decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
+                      border: OutlineInputBorder(),
                       labelText: "Last Name",
                       hintText: "ex: Gading"),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                child: TextFormField(
+                  controller: ctrEmail,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Email Address",
+                      hintText: "ex: fazrigading@gmail.com"),
                 ),
               ),
               Padding(
@@ -106,7 +127,6 @@ class _EditProfileState extends State<EditProfile> {
                       groupValue: idRadio,
                       onChanged: (val) {
                         setState(() {
-                          chosenGender = 0;
                           chosenRadio = "Male";
                           idRadio = 1;
                         });
@@ -118,7 +138,6 @@ class _EditProfileState extends State<EditProfile> {
                       groupValue: idRadio,
                       onChanged: (val) {
                         setState(() {
-                          chosenGender = 1;
                           chosenRadio = "Female";
                           idRadio = 2;
                         });
@@ -128,27 +147,34 @@ class _EditProfileState extends State<EditProfile> {
                   ],
                 ),
               ),
-              Material(
-                borderRadius: BorderRadius.circular(18.0),
-                elevation: 5,
-                color: const Color.fromRGBO(18, 18, 18, 1),
-                child: MaterialButton(
-                    onPressed: () {
-                      setState(() {
-                        firstName = ctrFirst.text;
-                        lastName = ctrLast.text;
-                        chosenGender = chosenGender;
-                      });
-                    },
-                    minWidth: 158,
-                    height: 58,
-                    child: const Text(
-                      'Done',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600),
-                    )),
+              Container(
+                margin: const EdgeInsets.all(10),
+                child:
+                    ButtonBar(alignment: MainAxisAlignment.center, children: [
+                  Material(
+                    borderRadius: BorderRadius.circular(18.0),
+                    elevation: 5,
+                    color: const Color.fromRGBO(18, 18, 18, 1),
+                    child: MaterialButton(
+                        onPressed: () {
+                          setState(() {
+                            firstName = ctrFirst.text;
+                            lastName = ctrLast.text;
+                            emailAddress = ctrEmail.text;
+                            chosenGender = idRadio - 1;
+                          });
+                        },
+                        minWidth: 150,
+                        height: 58,
+                        child: const Text(
+                          'Submit',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                        )),
+                  ),
+                ]),
               ),
             ],
           ),

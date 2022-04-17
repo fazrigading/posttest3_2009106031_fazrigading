@@ -9,9 +9,11 @@ void main() {
 }
 
 double balance = 43.19;
-String firstName = "Fazri", lastName = "Gading";
+String firstName = "Jenny",
+    lastName = "Doe",
+    emailAdress = "jennydoe@gmail.com";
 List<String> gender = ["Male", "Female"];
-int chosenGender = 0;
+int chosenGender = 1;
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,15 +21,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Post-test 3 2009106031',
+      home: const HomeScreen(),
       theme: ThemeData(
           fontFamily: 'Manrope',
           appBarTheme:
               const AppBarTheme(iconTheme: IconThemeData(color: Colors.black))),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => HomeScreen(),
-        // '/second': (context) => EditProfile(),
-      },
       debugShowCheckedModeBanner: false,
     );
   }
@@ -36,6 +34,7 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, firstName, lastName}) : super(key: key);
   @override
+  // ignore: no_logic_in_create_state
   State<HomeScreen> createState() => _HomeScreenState(firstName, lastName);
 }
 
@@ -51,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 1,
         toolbarHeight: 70,
         title: const Text(
-          "NFT App",
+          "NFT App by Gading",
           style: TextStyle(
               fontFamily: 'Manrope',
               color: Colors.black,
@@ -71,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               firstName: firstName,
                               lastName: lastName,
                               gender: gender,
+                              emailAddress: emailAdress,
                               chosenGender: chosenGender)));
                 },
                 icon: const Icon(Icons.person_outline)),
@@ -78,24 +78,24 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: ListView(
-        children: const [
-          // Container(
-          //     alignment: Alignment.center,
-          //     padding: const EdgeInsets.only(top: 20),
-          //     child: Text(
-          //       "Welcome, $firstName $lastName",
-          //       style: const TextStyle(
-          //           fontFamily: 'Manrope',
-          //           color: Colors.black,
-          //           fontSize: 20,
-          //           fontWeight: FontWeight.w300),
-          //     )),
-          Submenu(teks: 'Categories'),
-          CategoriesButton(),
-          Submenu(teks: 'Featured NFTs'),
-          FeaturedNFT(),
-          Submenu(teks: 'Featured Creators'),
-          Creators(),
+        children: [
+          Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.only(top: 20),
+              child: Text(
+                "Welcome, $firstName $lastName",
+                style: const TextStyle(
+                    fontFamily: 'Manrope',
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w300),
+              )),
+          const Submenu(teks: 'Categories'),
+          const CategoriesButton(),
+          const Submenu(teks: 'Featured NFTs'),
+          const FeaturedNFT(),
+          const Submenu(teks: 'Featured Creators'),
+          const Creators(),
         ],
       ),
     );
